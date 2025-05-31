@@ -1,4 +1,11 @@
 import SideBar from "@/components/operator/SideBar";
+import type { Metadata } from "next";
+
+
+export const metadata: Metadata = {
+  title: "Operator | Mz-Hears",
+  description: "Mz-hears health facility operator panel",
+};
 
 export default function OperatorLayout({
   children,

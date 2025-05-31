@@ -4,70 +4,111 @@ import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { IoIosPeople } from "react-icons/io";
-import { IoMedical } from "react-icons/io5";
-import { FaSuitcaseMedical } from "react-icons/fa6";
-import { TiTickOutline } from "react-icons/ti";
-import { RiHome5Fill } from "react-icons/ri";
+import { TbLayoutDashboardFilled } from "react-icons/tb";
+import { FaHospital } from "react-icons/fa6";
+import { FaUserTie } from "react-icons/fa";
+
+import Image from "next/image";
+import { primary } from "@/contants/colors";
 
 const SideBar = () => {
   const path = usePathname();
 
   return (
-    <div className="w-full bg-white h-full">
-      <nav className="w-full h-full">
-        <ul className="w-full h-full flex flex-col justify-center items-center gap-10">
-          <Link href="/operator">
-            <li
-              className="p-2 rounded-full"
-              style={{
-                backgroundColor:
-                  path === "/operator"
-                    ? "rgba(255, 255, 255, 0.3)"
-                    : "transparent",
-              }}
-            >
-              <RiHome5Fill size={23} color="white" />
-            </li>
+    <div className="w-full bg-white h-full px-4 py-8">
+      <div className="w-full flex-row justify-between items-center">
+        <div className="flex flex-row gap-2 items-center">
+          <Image
+            src="/logo.png"
+            width={100}
+            height={100}
+            alt="Logo"
+            className="w-5 h-5"
+          />
+          <Link href="/admin">
+            <h1 className="text-xl font-bold text-black">Mz Hears</h1>
           </Link>
-          <Link href="/operator/staff">
-            <li
-              className="p-2 rounded-full"
-              style={{
-                backgroundColor:
-                  path === "/operator/staff"
-                    ? "rgba(255, 255, 255, 0.3)"
-                    : "transparent",
-              }}
+        </div>
+      </div>
+      <p className="mt-10 text-sm text-gray-400 font-bold">Main Menu</p>
+      <nav className="w-full h-full mt-4">
+        <ul className="w-full h-full flex flex-col gap-4">
+          <li>
+            <Link
+              href="/admin"
+              className={`flex flex-row gap-2 items-center ${
+                path === "/admin" ? "bg-primary" : "bg-gray-100"
+              }  py-2 px-2 rounded-lg hover:scale-105`}
             >
-              <IoIosPeople size={23} color="white" />
-            </li>
-          </Link>
-          <Link href="/operator/emergencies">
-            <li
-              className="p-2 rounded-full"
-              style={{
-                backgroundColor:
-                  path === "/operator/emergencies"
-                    ? "rgba(255, 255, 255, 0.3)"
-                    : "transparent",
-              }}
+              <TbLayoutDashboardFilled
+                color={path === "/admin" ? "white" : primary}
+                size={25}
+              />
+              <p  className={`${
+                  path === "/admin" ? "text-white" : "text-primary"
+                } text-sm`}>Dashboard</p>
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/admin/operators"
+              className={`flex flex-row gap-2 items-center ${
+                path === "/admin/operators" ? "bg-primary" : "bg-gray-100"
+              }  py-2 px-2 rounded-lg hover:scale-105`}
             >
-              <IoMedical size={23} color="white" />
-            </li>
-          </Link>
-          <Link href="/operator/services">
-            <li
-              className="p-2 rounded-full"
-              style={{
-                backgroundColor:
-                  path === "/operator/services"
-                    ? "rgba(255, 255, 255, 0.3)"
-                    : "transparent",
-              }}
+              <FaUserTie
+                color={path === "/admin/operators" ? "white" : primary}
+                size={25}
+              />
+              <p
+                className={`${
+                  path === "/admin/operators" ? "text-white" : "text-primary"
+                } text-sm`}
+              >
+                Operators
+              </p>
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/admin/users"
+              className={`flex flex-row gap-2 items-center ${
+                path === "/admin/users" ? "bg-primary" : "bg-gray-100"
+              }  py-2 px-2 rounded-lg hover:scale-105`}
             >
-              <FaSuitcaseMedical size={23} color="white" />
-            </li>
-          </Link>
+              <IoIosPeople
+                color={path === "/admin/users" ? "white" : primary}
+                size={25}
+              />
+              <p
+                className={`${
+                  path === "/admin/users" ? "text-white" : "text-primary"
+                } text-sm`}
+              >
+                Users
+              </p>
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/admin/health-facilities"
+              className={`flex flex-row gap-2 items-center ${
+                path === "/admin/health-facilities"
+                  ? "bg-primary"
+                  : "bg-gray-100"
+              }  py-2 px-2 rounded-lg hover:scale-105`}
+            >
+              <FaHospital
+                color={path === "/admin/health-facilities" ? "white" : primary}
+                size={25}
+              />
+              <p className={`${
+                path === "/admin/health-facilities" ? "text-white" : "text-primary"
+              } text-sm overflow-clip line-clamp-1`}>
+                Health Facilities
+              </p>
+            </Link>
+          </li>
         </ul>
       </nav>
     </div>

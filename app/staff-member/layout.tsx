@@ -1,5 +1,11 @@
 import SideBar from "@/components/responder/SideBar";
+import type { Metadata } from "next";
 
+
+export const metadata: Metadata = {
+  title: "Staff Member | Mz-Hears",
+  description: "Mz-hears staff member panel",
+};
 export default function StaffMemberLayout({
   children,
 }: Readonly<{

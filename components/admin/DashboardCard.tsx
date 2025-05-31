@@ -1,0 +1,20 @@
+import React from 'react'
+
+const DashboardCard = ({ card, Icon } : { card: any; Icon: any}) => {
+  return (
+    <div className='w-full bg-white rounded-xl py-4 hover:scale-[1.03] cursor-pointer'>
+      <div className='px-4 flex flex-row items-center justify-between'>
+        <p className='text-sm text-black opacity-60 font-bold'>{card?.title}</p>
+        <div className={`${card?.iconBg} p-2 rounded`}>
+          <Icon size={25} color="white"/>
+        </div>
+      </div>
+      <div className={`border-l-4 mt-2 w-full px-3 ${card?.borderColor}`}>
+        <p className={`text-3xl font-bold ${card?.textColor}`}>250</p>
+      </div>
+      <p className={`px-4 mt-2 text-xs ${card?.textColor}`}>Since <span className='text-black opacity-40'>{new Date().toDateString()}</span></p>
+    </div>
+  )
+}
+
+export default DashboardCard

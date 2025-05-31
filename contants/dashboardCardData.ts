@@ -2,7 +2,8 @@ import { IoIosPeople } from "react-icons/io";
 import { TbMedicalCross } from "react-icons/tb";
 import { MdOutlineMedicalServices } from "react-icons/md";
 import { TiTickOutline } from "react-icons/ti";
-import { IoPerson } from "react-icons/io5";
+import { FaUserTie } from "react-icons/fa";
+import { FaHospital } from "react-icons/fa6";
 
 
 export const dashboardCardData = [
@@ -44,5 +45,35 @@ export const responderDashboadData = [
     icon: TiTickOutline,
     iconColor: "text-green-600",
     iconBg: "bg-green-100"
+  }
+];
+export const adminDashboardCardData = [
+  {
+    title: "Operators",
+    icon: FaUserTie,
+    iconBg: "bg-primary",
+    textColor: "text-primary",
+    borderColor: "border-primary"
+  },
+  {
+    title: "Users",
+    icon: IoIosPeople,
+    iconBg: "bg-secondary",
+    textColor: "text-secondary",
+    borderColor: "border-secondary"
+  },
+  {
+    title: "Facilities",
+    icon: FaHospital,
+    iconBg: "bg-green-500",
+    textColor: "text-green-500",
+    borderColor: "border-green-500"
+  },
+  {
+    title: "Emergencies",
+    icon: TbMedicalCross,
+    iconBg: "bg-purple-500",
+    textColor: "text-purple-500",
+    borderColor: "border-purple-500"
   }
 ];

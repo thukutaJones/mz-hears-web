@@ -22,7 +22,7 @@ const TopBar = () => {
           </p>
         </button>
       </div>
-      <div className="w-full h-[20vh] bg-primary rounded-2xl mt-20 flex flex-row">
+      <div className="w-full h-[20vh] relative bg-primary rounded-2xl mt-20 flex flex-row">
         <div className="w-[30%] h-full relative">
           <Image
             src="/doctor.png"
@@ -40,6 +40,7 @@ const TopBar = () => {
             Have a nice day managing your health facility!
           </p>
         </div>
+        <div className="absolute h-full w-full top-0 left-0 bg-[url('/noise.png')] opacity-50 pointer-events-none [mask-image:linear-gradient(to_left,black,transparent)] [-webkit-mask-image:linear-gradient(to_left,black,transparent)]" />
       </div>
     </div>
   );
