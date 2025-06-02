@@ -13,4 +13,4 @@ export const pieChart = [
   { name: "Luwinga", value: 800 },
   { name: "Area 1b", value: 1100 },
 ];
-  
+   
