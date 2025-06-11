@@ -29,7 +29,7 @@ const page = () => {
       const res = await axios.get(
         `${baseUrl}/api/v1/responder/facility/${facilityId}`
       );
-      setResponders(res?.data?.staffMembers);
+      setResponders(res?.data?.responders);
     } catch (error: any) {
       setAlert({
         type: "error",
@@ -64,6 +64,7 @@ const page = () => {
           handlSuccess={(message: any) =>
             setAlert({ type: "success", message: message })
           }
+          user={user}
         />
       )}
 

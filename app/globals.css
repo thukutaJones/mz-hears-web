@@ -77,6 +77,24 @@ body {
   background: #ffffff;
 }
 
+.scroll-container-small::-webkit-scrollbar-button {
+  display: none;
+}
+
+.scroll-container-small::-webkit-scrollbar {
+  width: 1px; 
+  height: 3px;
+}
+
+.scroll-container-small::-webkit-scrollbar-thumb {
+  background: #007BFF;
+  border-radius: 32px;
+}
+
+.scroll-container-small::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
 .animated {
   animation-duration: 2s;
   animation-fill-mode: both;

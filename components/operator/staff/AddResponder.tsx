@@ -9,13 +9,14 @@ import { isValidPhonenumber } from "@/utils/isValidPhonenumber";
 import { baseUrl } from "@/contants/baseUrl";
 import { addResponderFields } from "@/contants/formFields";
 import MultiTextInput from "@/components/MultiTextInput";
+import { getFacilityId } from "@/utils/getFacilityid";
 
 interface FormValues {
   fullName: string;
   email: string;
   phoneNumber: string;
   sex: string;
-  roles: string[]
+  roles: string[];
 }
 
 const AddResponder = ({
@@ -23,18 +24,20 @@ const AddResponder = ({
   setHandleToggleAdd,
   callBack,
   handlSuccess,
+  user,
 }: {
   toggleAdd: boolean;
   setHandleToggleAdd: (toggle: boolean) => void;
   callBack: any;
   handlSuccess: any;
+  user: any;
 }) => {
   const [formValues, setFormValues] = useState<FormValues>({
     fullName: "",
     email: "",
     phoneNumber: "",
     sex: "",
-    roles: []
+    roles: [],
   });
 
   const [errorMessage, setErrorMessage] = useState<string>("");
@@ -53,13 +56,17 @@ const AddResponder = ({
     }
     setIsAdding(true);
     try {
+      const facilityId = await getFacilityId(user?.id, user?.token)
       const payload = {
         email: formValues.email,
         fullName: formValues.fullName,
         role: "responder",
         phoneNumber: formValues.phoneNumber,
         sex: formValues.sex,
+        roles: formValues.roles,
+        facility: facilityId
       };
+    
       await axios.post(`${baseUrl}/api/v1/responder`, payload);
       handlSuccess("Responder added successfully");
       await callBack();
@@ -93,7 +100,7 @@ const AddResponder = ({
           </div>
           <div className="w-full flex flex-col items-center justify-center">
             <div
-              className="z-10 flex flex-col items-center justify-center md:mt-4 no-scrollbar w-full min-h-[70vh] max-h-[85vh] rounded-xl md:w-[30%] overflow-auto pb-4 animated fadeInUp bg-white px-8"
+              className="z-10 flex flex-col items-center md:mt-4 scroll-container-small w-full min-h-[70vh] max-h-[85vh] rounded-xl md:w-[30%] overflow-auto pb-4 animated fadeInUp bg-white px-8"
               onClick={(e: any) => {
                 e.stopPropagation();
               }}
