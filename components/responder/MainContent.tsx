@@ -1,12 +1,15 @@
 import React from "react";
-import { dashboardCardData, responderDashboadData } from "@/contants/dashboardCardData";
+import {
+  dashboardCardData,
+  responderDashboadData,
+} from "@/contants/dashboardCardData";
 import TopBar from "./TopBar";
 import DashboardCard from "./DashboardCard";
 
-const MainContent = () => {
+const MainContent = ({ data }: { data: any }) => {
   return (
     <div className="w-[70%] h-screen overflow-auto scroll-container px-8 py-4">
-      <TopBar />
+      <TopBar name={data?.responder?.fullName?.split(" ")[0]} />
       <div className="w-full mt-4">
         <p className="text-sm text-black" style={{ fontWeight: 600 }}>
           Stats

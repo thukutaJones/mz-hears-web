@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-const TopBar = () => {
+const TopBar = ({ name }: { name: string }) => {
   return (
     <div className="w-full">
       <div className="w-full flex flex-row justify-end gap-4">
@@ -26,7 +26,7 @@ const TopBar = () => {
         </div>
         <div className="w-[70%] h-full px-4 py-8 font-sans">
           <p className="text-white text-xl" style={{ fontWeight: 500 }}>
-            Welcome, <span style={{ fontWeight: 800 }}>Dr. Midu</span>
+            Welcome, <span style={{ fontWeight: 800 }}>Dr. {name}</span>
           </p>
           <p className="text-xs text-white">
             Have a nice day responding to emergencies!
