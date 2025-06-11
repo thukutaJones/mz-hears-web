@@ -91,21 +91,21 @@ const SideBar = () => {
           </li>
           <li>
             <Link
-              href="/admin/health-facilities"
+              href="/admin/facilities"
               className={`flex flex-row gap-2 items-center ${
-                path === "/admin/health-facilities"
+                path === "/admin/facilities"
                   ? "bg-primary"
                   : "bg-gray-100"
               }  py-2 px-2 rounded-lg hover:scale-105`}
             >
               <FaHospital
-                color={path === "/admin/health-facilities" ? "white" : primary}
+                color={path === "/admin/facilities" ? "white" : primary}
                 size={25}
               />
               <p className={`${
-                path === "/admin/health-facilities" ? "text-white" : "text-primary"
+                path === "/admin/facilities" ? "text-white" : "text-primary"
               } text-sm overflow-clip line-clamp-1`}>
-                Health Facilities
+                Facilities
               </p>
             </Link>
           </li>

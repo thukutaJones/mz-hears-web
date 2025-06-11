@@ -5,7 +5,6 @@ import { TiTickOutline } from "react-icons/ti";
 import { FaUserTie } from "react-icons/fa";
 import { FaHospital } from "react-icons/fa6";
 
-
 export const dashboardCardData = [
   {
     title: "Emergencies",
@@ -29,8 +28,8 @@ export const dashboardCardData = [
     title: "Completed",
     icon: TiTickOutline,
     iconColor: "text-green-600",
-    iconBg: "bg-green-100"
-  }
+    iconBg: "bg-green-100",
+  },
 ];
 
 export const responderDashboadData = [
@@ -44,8 +43,8 @@ export const responderDashboadData = [
     title: "Completed",
     icon: TiTickOutline,
     iconColor: "text-green-600",
-    iconBg: "bg-green-100"
-  }
+    iconBg: "bg-green-100",
+  },
 ];
 export const adminDashboardCardData = [
   {
@@ -53,27 +52,31 @@ export const adminDashboardCardData = [
     icon: FaUserTie,
     iconBg: "bg-primary",
     textColor: "text-primary",
-    borderColor: "border-primary"
+    borderColor: "border-primary",
+    route: "/admin/operators",
   },
   {
     title: "Users",
     icon: IoIosPeople,
     iconBg: "bg-secondary",
     textColor: "text-secondary",
-    borderColor: "border-secondary"
+    borderColor: "border-secondary",
+    route: "/admin/users",
   },
   {
     title: "Facilities",
     icon: FaHospital,
     iconBg: "bg-green-500",
     textColor: "text-green-500",
-    borderColor: "border-green-500"
+    borderColor: "border-green-500",
+    route: "/admin/facilities",
   },
   {
     title: "Emergencies",
     icon: TbMedicalCross,
     iconBg: "bg-purple-500",
     textColor: "text-purple-500",
-    borderColor: "border-purple-500"
-  }
+    borderColor: "border-purple-500",
+    route: "/admin/emergencies",
+  },
 ];

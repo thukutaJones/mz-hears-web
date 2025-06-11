@@ -11,7 +11,7 @@ const Stats = () => {
             key={index?.toString()}
             card={item}
             Icon={item?.icon}
-          />
+          /> 
         ))}
       </div>
     </div>

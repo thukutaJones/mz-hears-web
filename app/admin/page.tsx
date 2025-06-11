@@ -12,7 +12,7 @@ const page = () => {
       <Stats />
       <Charts />
     </div>
-  );
+  ); 
 };
 
 export default page;

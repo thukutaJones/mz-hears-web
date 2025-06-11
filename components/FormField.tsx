@@ -21,7 +21,7 @@ const FormField = ({
         className={`w-full h-10 bg-blue-50 shadow shadow-blue-600 rounded-2xl flex flex-row`}
       >
         <input
-          className={`h-full px-4 ${
+          className={`h-full px-4 rounded-2xl ${
             field?.placeholder === "••••••••••••" ? "w-[85%]" : "w-full"
           } bg-transparent focus:outline-0 text-black text-sm`}
           placeholder={field?.placeholder}
