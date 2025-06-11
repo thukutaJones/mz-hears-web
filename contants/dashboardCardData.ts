@@ -11,24 +11,32 @@ export const dashboardCardData = [
     icon: TbMedicalCross,
     iconColor: "text-red-600",
     iconBg: "bg-red-100",
+    variable: "emergencies",
+    route: "/operator/emergencies",
   },
   {
     title: "Staff",
     icon: IoIosPeople,
     iconColor: "text-purple-600",
     iconBg: "bg-purple-100",
+    variable: "staffMembers",
+    route: "/operator/staff",
   },
   {
     title: "Services",
     icon: MdOutlineMedicalServices,
     iconColor: "text-blue-600",
     iconBg: "bg-blue-100",
+    variable: "services",
+    route: "/operator/services",
   },
   {
     title: "Completed",
     icon: TiTickOutline,
     iconColor: "text-green-600",
     iconBg: "bg-green-100",
+    variable: "completedEmergencies",
+    route: "/operator/completed-emergencies",
   },
 ];
 

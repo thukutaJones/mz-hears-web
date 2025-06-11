@@ -26,7 +26,7 @@ const SideBar = () => {
             className="w-5 h-5"
           />
           <Link href="/admin">
-            <h1 className="text-xl font-bold text-black">Mz Hears</h1>
+            <h1 className="text-xl font-bold text-black uppercase">Masm-Mears</h1>
           </Link>
         </div>
       </div>

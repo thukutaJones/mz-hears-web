@@ -4,7 +4,7 @@ import { FaHospital } from "react-icons/fa6";
 import { MdOutlineMedicalServices } from "react-icons/md";
 import RoundedProgressBar from "./RoundedProgressBar";
 
-const Profile = () => {
+const Profile = ({ data }: { data: any }) => {
   return (
     <div className="bg-white w-[30%] h-screen p-4 flex flex-col items-center overflow-auto scroll-container">
       <div className="w-full flex  flex-row justify-between items-center">
@@ -16,7 +16,7 @@ const Profile = () => {
         <FaHospital size={60} color={primary} />
       </div>
       <p className="mt-2 text-black text-sm" style={{ fontWeight: 600 }}>
-        MASM
+        {data?.facility?.location?.name}
       </p>
       <div className="w-full mt-10">
         <div className="w-full flex flex-row justify-between items-center">
@@ -28,16 +28,16 @@ const Profile = () => {
           </button>
         </div>
         <div className="flex flex-col gap-2">
-          {[1, 2, 3]?.map((service: any, index: number) => (
+          {data?.facility?.services?.map((service: any, index: number) => (
             <div className="w-full flex flex-row gap-4" key={index?.toString()}>
               <div className="flex items-center justify-center p-4 bg-gray-100 rounded-full">
                 <MdOutlineMedicalServices color={primary} />
               </div>
               <p className="text-sm text-gray-600 font-bold">
-                Ambulance
+                {service}
                 <br />
                 <span className="text-xs text-gray-400 font-medium">
-                  {new Date().toDateString()}
+                  available
                 </span>
               </p>
             </div>
@@ -49,10 +49,18 @@ const Profile = () => {
               Completed emergencies
             </p>
             <p className="text-white text-xs">This month</p>
-            <p className="text-white mt-8">7/10</p>
+            <p className="text-white mt-8">
+              {data?.completedEmergencies}/{data?.emergencies}
+            </p>
           </div>
           <div className="w-[30%] border-2s">
-            <RoundedProgressBar value={75} />
+            <RoundedProgressBar
+              value={
+                data?.emergencies
+                  ? (data?.completedEmergencies / data?.emergencies) * 100
+                  : 0
+              }
+            />
           </div>
         </div>
       </div>

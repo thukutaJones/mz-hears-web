@@ -5,10 +5,10 @@ import { dashboardCardData } from "@/contants/dashboardCardData";
 import Emergencies from "./Emergencies";
 import { emergencyTableData } from "@/contants/testData";
 
-const MainContent = () => {
+const MainContent = ({ data }: { data: any }) => {
   return (
     <div className="w-[70%] h-screen overflow-auto scroll-container px-8 py-4">
-      <TopBar />
+      <TopBar name={data?.operator?.fullName?.split(" ")[0]} />
       <div className="w-full mt-4">
         <p className="text-sm text-black" style={{ fontWeight: 600 }}>
           Stats
@@ -19,6 +19,7 @@ const MainContent = () => {
               key={index?.toString()}
               card={item}
               Icon={item?.icon}
+              value={data[item["variable"]]}
             />
           ))}
         </div>
@@ -34,7 +35,7 @@ const MainContent = () => {
             </p>
           </button>
         </div>
-        <Emergencies emergencies={emergencyTableData} />
+        <Emergencies emergencies={data?.recentEmergencies} />
       </div>
     </div>
   );

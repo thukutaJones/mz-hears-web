@@ -28,7 +28,7 @@ const page = () => {
         type: "error",
         message:
           error?.response?.data?.message ||
-          "Failed to delete Sales Person. Please try again.",
+          "Something went wrong!! Please try again...",
       });
     }
   };

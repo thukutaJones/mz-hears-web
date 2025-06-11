@@ -1,8 +1,18 @@
+import Link from "next/link";
 import React from "react";
 
-const DashboardCard = ({ card, Icon }: { card: any; Icon: any }) => {
+const DashboardCard = ({
+  card,
+  Icon,
+  value,
+}: {
+  card: any;
+  Icon: any;
+  value: string | number | undefined;
+}) => {
   return (
-    <div
+    <Link
+      href={card?.route}
       className={`w-full shadow-sm rounded-xl p-4 bg-white flex flex-col items-center hover:scale-105 hover:shadow-${card?.iconColor} cursor-pointer`}
     >
       <div className={`mt-2 ${card?.iconBg} p-2 rounded-xl`}>
@@ -12,9 +22,9 @@ const DashboardCard = ({ card, Icon }: { card: any; Icon: any }) => {
         {card?.title}
       </p>
       <p className="text-black text-3xl font-sans" style={{ fontWeight: 600 }}>
-        32
+        {value === "undefined" ? "-" : value}
       </p>
-    </div>
+    </Link>
   );
 };
 

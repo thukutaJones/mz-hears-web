@@ -1,7 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
 
-const TopBar = () => {
+const TopBar = ({ name }: { name: string }) => {
   return (
     <div className="w-full">
       <div className="w-full flex flex-row justify-end gap-4">
@@ -10,10 +12,13 @@ const TopBar = () => {
             className="px-8 py-2 text-xs text-primary"
             style={{ fontWeight: 500 }}
           >
-            My Health Facility
+            My Facility
           </p>
         </button>
-        <button className="bg-primary rounded-lg hover:scale-110">
+        <button
+          className="bg-primary rounded-lg hover:scale-110"
+          onClick={() => (location.href = "/operator/profile")}
+        >
           <p
             className="px-8 py-2 text-xs text-white"
             style={{ fontWeight: 500 }}
@@ -34,7 +39,7 @@ const TopBar = () => {
         </div>
         <div className="w-[70%] h-full px-4 py-8 font-sans">
           <p className="text-white text-xl" style={{ fontWeight: 500 }}>
-            Welcome, <span style={{ fontWeight: 800 }}>Dr. Midu</span>
+            Welcome, <span style={{ fontWeight: 800 }}>Dr. {name}</span>
           </p>
           <p className="text-xs text-white">
             Have a nice day managing your health facility!
