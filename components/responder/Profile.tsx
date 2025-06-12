@@ -3,7 +3,7 @@ import React from "react";
 import { IoPerson } from "react-icons/io5";
 import RoundedProgressBar from "./RoundedProgressBar";
 
-const Profile = () => {
+const Profile = ({ data }: { data: any }) => {
   return (
     <div className="bg-white w-[30%] h-screen p-4 flex flex-col items-center overflow-auto scroll-container">
       <div className="w-full flex  flex-row justify-between items-center">
@@ -15,7 +15,7 @@ const Profile = () => {
         <IoPerson size={60} color={primary} />
       </div>
       <p className="mt-2 text-black text-sm" style={{ fontWeight: 600 }}>
-        Dr. Midu
+        Dr. {data?.responder?.fullName?.split(" ")[0]}
       </p>
       <div className="w-full mt-10">
         <div className="w-full flex flex-row justify-between items-center">
@@ -27,13 +27,25 @@ const Profile = () => {
           </button>
         </div>
         <div className="w-full mt-2 shadow p-4 text-sm text-black flex flex-col gap-2 border border-gray-100 rounded-xl">
-          <p className="font-bold">Email: <span className="font-medium">midu@test.com</span></p>
+          <p className="font-bold">
+            Email: <span className="font-medium">{data?.responder?.email}</span>
+          </p>
           <hr className="text-gray-400" />
-          <p className="font-bold">Phone number: <span className="font-medium">0888765431</span></p>
+          <p className="font-bold">
+            Phone number:{" "}
+            <span className="font-medium">{data?.responder?.phoneNumber}</span>
+          </p>
           <hr className="text-gray-400" />
-          <p className="font-bold">Facility: <span className="font-medium">MASM</span></p>
+          <p className="font-bold">
+            Facility:{" "}
+            <span className="font-medium">
+              {data?.responder?.facility?.location?.name}
+            </span>
+          </p>
           <hr className="text-gray-400" />
-          <p className="font-bold">Role: <span className="font-medium">Ambulance driver</span></p>
+          <p className="font-bold">
+            Role: <span className="font-medium">{data?.responder?.role}</span>
+          </p>
         </div>
         <div className="bg-primary w-full rounded-xl flex flex-row mt-10 px-4 py-8">
           <div className="w-[70%]">
@@ -41,10 +53,18 @@ const Profile = () => {
               Completed emergencies
             </p>
             <p className="text-white text-xs">This month</p>
-            <p className="text-white mt-8">7/10</p>
+            <p className="text-white mt-8">
+              {data?.completedEmergencies}/{data?.emergencies}
+            </p>
           </div>
           <div className="w-[30%] border-2s">
-            <RoundedProgressBar value={75} />
+            <RoundedProgressBar
+              value={
+                data?.emergencies
+                  ? (data?.completedEmergencies / data?.emergencies) * 100
+                  : 0
+              }
+            />
           </div>
         </div>
       </div>

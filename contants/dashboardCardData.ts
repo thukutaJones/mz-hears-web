@@ -46,12 +46,14 @@ export const responderDashboadData = [
     icon: TbMedicalCross,
     iconColor: "text-red-600",
     iconBg: "bg-red-100",
+    variable: "emergencies",
   },
   {
     title: "Completed",
     icon: TiTickOutline,
     iconColor: "text-green-600",
     iconBg: "bg-green-100",
+    variable: "completedEmergencies",
   },
 ];
 export const adminDashboardCardData = [
@@ -62,6 +64,7 @@ export const adminDashboardCardData = [
     textColor: "text-primary",
     borderColor: "border-primary",
     route: "/admin/operators",
+    variable: "operators",
   },
   {
     title: "Users",
@@ -70,6 +73,7 @@ export const adminDashboardCardData = [
     textColor: "text-secondary",
     borderColor: "border-secondary",
     route: "/admin/users",
+    variable: "users",
   },
   {
     title: "Facilities",
@@ -78,6 +82,7 @@ export const adminDashboardCardData = [
     textColor: "text-green-500",
     borderColor: "border-green-500",
     route: "/admin/facilities",
+    variable: "facilities",
   },
   {
     title: "Emergencies",
@@ -86,5 +91,6 @@ export const adminDashboardCardData = [
     textColor: "text-purple-500",
     borderColor: "border-purple-500",
     route: "/admin/emergencies",
+    variable: "emergencies",
   },
 ];

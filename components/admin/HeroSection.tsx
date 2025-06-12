@@ -1,12 +1,10 @@
 import React from "react";
 
-const HeroSection = () => {
+const HeroSection = ({ name }: { name: string }) => {
   return (
     <div className="w-full p-8 bg-primary mt-4 rounded-xl relative">
       <div className="">
-        <p className="text-3xl text-white font-bold">
-          Good Morning, John Doe
-        </p>
+        <p className="text-3xl text-white font-bold">Good Morning, {name}</p>
         <p className="text-sm text-white opacity-80 mt-4 max-w-[40%]">
           Have a nice a day managing Mz-hears. Thank you for keeping everything
           running perfectly!

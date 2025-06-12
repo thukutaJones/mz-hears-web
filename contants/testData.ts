@@ -16,3 +16,40 @@ export const emergencyTableData = [
     time: "09:12"
   },
 ];
+
+
+type User = {
+  id: number;
+  name: string;
+  email: string;
+  role: string;
+  status: "active" | "inactive";
+  avatar: string;
+};
+
+export const initialUsers: User[] = [
+  {
+    id: 1,
+    name: "Jane Doe",
+    email: "jane@example.com",
+    role: "Admin",
+    status: "active",
+    avatar: "https://i.pravatar.cc/150?img=5",
+  },
+  {
+    id: 2,
+    name: "John Smith",
+    email: "john@example.com",
+    role: "User",
+    status: "inactive",
+    avatar: "https://i.pravatar.cc/150?img=10",
+  },
+  {
+    id: 3,
+    name: "Alice Johnson",
+    email: "alice@example.com",
+    role: "Moderator",
+    status: "active",
+    avatar: "https://i.pravatar.cc/150?img=20",
+  },
+];

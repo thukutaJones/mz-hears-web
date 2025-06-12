@@ -20,6 +20,7 @@ const MainContent = ({ data }: { data: any }) => {
               key={index?.toString()}
               card={item}
               Icon={item?.icon}
+              value={data[item['variable']]}
             />
           ))}
         </div>

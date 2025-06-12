@@ -59,7 +59,7 @@ const Operators = ({
                       : "bg-red-100 text-red-700"
                   }`}
                 >
-                  {operator?.facility || "not assigned"}
+                  {operator?.facility?.location?.name || "not assigned"}
                 </span>
               </td>
               <td className="p-4">

@@ -1,8 +1,29 @@
-import React from "react";
+"use client";
+
+import { baseUrl } from "@/contants/baseUrl";
+import { useAuth } from "@/hooks/useAuth";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { IoMdPerson } from "react-icons/io";
 
 const TopBar = () => {
+  const user = useAuth(["admin"]);
+  const [userData, setUserData] = useState<any>({});
+
+  const fetchUser = async () => {
+    if (!user) return;
+    try {
+      const res = await axios.get(`${baseUrl}/api/v1/user/user/${user?.id}`);
+      setUserData(res.data?.user);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchUser();
+  }, [user]);
   return (
     <div className="w-full bg-white h-[70px] px-8 flex flex-row justify-between items-center">
       <div className="flex flex-row h-[60%] bg-gray-100 w-[30%] items-center px-4 rounded-full gap-2">
@@ -17,9 +38,9 @@ const TopBar = () => {
           <IoMdPerson className="text-gray-400" size={30} />
         </div>
         <p className="text-sm text-black font-bold">
-          John Doe <br />
+          {userData?.fullName} <br />
           <span className="text-xs text-gray-500 font-medium">
-            johndoe@test.com
+            {userData?.email}
           </span>
         </p>
       </div>

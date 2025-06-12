@@ -43,7 +43,7 @@ const page = () => {
   return (
     <div className="w-full flex flex-row">
       <MainContent data={stats}/>
-      <Profile />
+      <Profile data={stats} />
        {alert && (
         <Alert
           message={alert.message}
@@ -51,7 +51,7 @@ const page = () => {
           onClose={() => setAlert(null)}
         />
       )}
-    </div>
+    </div> 
   );
 };
 

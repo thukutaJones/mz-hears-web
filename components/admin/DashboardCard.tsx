@@ -1,7 +1,15 @@
 import Link from "next/link";
 import React from "react";
 
-const DashboardCard = ({ card, Icon }: { card: any; Icon: any }) => {
+const DashboardCard = ({
+  card,
+  Icon,
+  value,
+}: {
+  card: any;
+  Icon: any;
+  value: any;
+}) => {
   return (
     <Link
       className="w-full bg-white rounded-xl py-4 hover:scale-[1.03] cursor-pointer"
@@ -14,7 +22,7 @@ const DashboardCard = ({ card, Icon }: { card: any; Icon: any }) => {
         </div>
       </div>
       <div className={`border-l-4 mt-2 w-full px-3 ${card?.borderColor}`}>
-        <p className={`text-3xl font-bold ${card?.textColor}`}>250</p>
+        <p className={`text-3xl font-bold ${card?.textColor}`}>{value}</p>
       </div>
       <p className={`px-4 mt-2 text-xs ${card?.textColor}`}>
         Since{" "}

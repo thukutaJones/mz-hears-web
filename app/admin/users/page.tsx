@@ -1,45 +1,12 @@
 "use client";
 
 import Breadcrumb from "@/components/Breadcrumb";
+import { initialUsers } from "@/contants/testData";
+import Image from "next/image";
 import { useState } from "react";
 import { FiEdit2, FiTrash2, FiEye } from "react-icons/fi";
 import { IoMdArrowRoundBack } from "react-icons/io";
 
-type User = {
-  id: number;
-  name: string;
-  email: string;
-  role: string;
-  status: "active" | "inactive";
-  avatar: string;
-};
-
-const initialUsers: User[] = [
-  {
-    id: 1,
-    name: "Jane Doe",
-    email: "jane@example.com",
-    role: "Admin",
-    status: "active",
-    avatar: "https://i.pravatar.cc/150?img=5",
-  },
-  {
-    id: 2,
-    name: "John Smith",
-    email: "john@example.com",
-    role: "User",
-    status: "inactive",
-    avatar: "https://i.pravatar.cc/150?img=10",
-  },
-  {
-    id: 3,
-    name: "Alice Johnson",
-    email: "alice@example.com",
-    role: "Moderator",
-    status: "active",
-    avatar: "https://i.pravatar.cc/150?img=20",
-  },
-];
 
 const page = () => {
   const [users, setUsers] = useState(initialUsers);
@@ -79,9 +46,11 @@ const page = () => {
                 } hover:bg-gray-50 transition duration-200`}
               >
                 <td className="p-4 flex items-center gap-3">
-                  <img
-                    src={user.avatar}
-                    alt={user.name}
+                  <Image
+                    src={"/profile.png"}
+                    width={100}
+                    height={100}
+                    alt={"profile"}
                     className="w-10 h-10 rounded-full"
                   />
                   <span className="font-medium">{user.name}</span>
